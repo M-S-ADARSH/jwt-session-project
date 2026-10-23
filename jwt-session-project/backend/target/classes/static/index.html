@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JWT Secure Student Portal</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script defer src="/app.js"></script>
+</head>
+<body>
+  <header class="topbar"><div><span class="eyebrow">FULL-STACK SECURITY DEMO</span><h1>JWT Secure Portal</h1></div><span id="statusPill" class="pill">Signed out</span></header>
+  <main>
+    <section class="intro"><p class="eyebrow">AUTHENTICATION · AUTHORIZATION · API SECURITY</p><h2>One token. Protected resources.</h2><p>Register or sign in, then call protected APIs and observe the access rules.</p></section>
+    <div class="columns">
+      <section class="panel">
+        <h3>1 · Account</h3>
+        <label for="username">Username</label><input id="username" autocomplete="username" placeholder="e.g. demo">
+        <label for="password">Password</label><input id="password" type="password" autocomplete="current-password" placeholder="Your password">
+        <div class="actions"><button id="loginBtn">Log in</button><button id="registerBtn" class="secondary">Register</button></div>
+        <p class="hint">Demo user: <code>demo</code> / <code>DemoPass123!</code><br>Admin: <code>admin</code> / <code>AdminPass123!</code></p>
+        <button id="logoutBtn" class="text-button" disabled>Log out / discard token</button>
+      </section>
+      <section class="panel">
+        <h3>2 · Protected APIs</h3>
+        <p class="hint">These requests attach the current Bearer token when available.</p>
+        <div class="actions vertical"><button id="profileBtn" class="secondary">GET /api/user/me</button><button id="adminBtn" class="secondary">GET /api/admin/dashboard</button><button id="noTokenBtn" class="danger">Try profile without token</button></div>
+        <div id="result" class="result" role="status" aria-live="polite">Your API responses will appear here.</div>
+      </section>
+    </div>
+    <section class="panel token-panel"><div class="token-heading"><h3>3 · Token inspector</h3><span class="pill">Demo only</span></div><p class="hint">The token is shown here to make the learning flow visible. Do not expose tokens in production logs or interfaces.</p><pre id="tokenView">No token yet.</pre></section>
+    <section class="callout"><strong>Security note</strong><p>This educational demo keeps the access token in memory for the current page session. A refresh signs you out. Production deployments need HTTPS, secret management, rate limiting, careful XSS/CSRF analysis, and a considered token-storage strategy.</p></section>
+  </main>
+  <footer>Built with HTML · CSS · TypeScript · Spring Boot · Spring Security · MySQL</footer>
+</body>
+</html>
